@@ -1,13 +1,17 @@
 var jogador, vencedor = null;
 var jogadorSelecionado = document.getElementById("jogador-selecionado");//pegando a tag label com o ID="jogador-selecionado".
 var vecendorSelecionado = document.getElementById("vencedor");//pegando a tag label com o ID="vencedor".
-var quad = document.getElementsByClassName('quadrado');//pegando todas as divs com a class="quadrado".
+//var quad = document.getElementsByClassName('quadrado');//pegando todas as divs com a class="quadrado".
 
 mudarJogador('X');//Dando valor inicial "X" para variavel jogador.
 
 ///////Preenche a div com "X" ou "O".
 function selecionarQuad(id){
-
+	
+	if (vencedor !== null){
+		return
+	}
+	
     var quad = document.getElementById(id);//pegando a div do html para fazer a comparação
     
     //Verificando se a div esta com o text "-" para da continuidade á função "selecionarQuad()".
@@ -26,6 +30,7 @@ function selecionarQuad(id){
 
     
     mudarJogador(jogador);
+	checkVencedor()
 
 }
 
@@ -47,10 +52,46 @@ function checkVencedor() {
     var quad8 = document.getElementById("8");
     var quad9 = document.getElementById("9");
     
-    if (checksequencia(quad1,quad2,quad2)){
-        mudarCor(quad1,quad2,quad2);
-        mudarVencedor(quad1); 
+    if (checksequencia(quad1,quad2,quad3)){
+        mudarCor(quad1,quad2,quad3);
+        mudarVencedor(quad1);
+		return
     }
+	if (checksequencia(quad4,quad5,quad6)){
+        mudarCor(quad4,quad5,quad6);
+        mudarVencedor(quad4);
+		return
+    }
+	if (checksequencia(quad7,quad8,quad9)){
+        mudarCor(quad7,quad8,quad9);
+        mudarVencedor(quad7);
+		return
+    }
+	if (checksequencia(quad1,quad4,quad7)){
+        mudarCor(quad1,quad4,quad7);
+        mudarVencedor(quad1);
+		return
+    }
+	if (checksequencia(quad2,quad5,quad8)){
+        mudarCor(quad2,quad5,quad8);
+        mudarVencedor(quad2);
+		return
+    }	
+	if (checksequencia(quad3,quad6,quad9)){
+        mudarCor(quad3,quad6,quad9);
+        mudarVencedor(quad3);
+		return
+    }
+	if (checksequencia(quad1,quad5,quad9)){
+        mudarCor(quad1,quad5,quad9);
+        mudarVencedor(quad1);
+		return
+    }
+	if (checksequencia(quad3,quad5,quad7)){
+        mudarCor(quad3,quad5,quad7);
+        mudarVencedor(quad3);
+    }
+	
    
 }
 
@@ -58,19 +99,19 @@ function checkVencedor() {
 function  mudarVencedor(quadrado){
     
     vencedor = quadrado.innerHTML;
-    vecendorSelecionado.innerHTML = "vencedor";
+    vecendorSelecionado.innerHTML = vencedor;
 }
 
-function mudarCor(x, y ,z){
-    x.style.background = "#0f0";
-    y.style.background = "#0f0";
-    z.style.background = "#0f0";
+function mudarCor(quad1, quad2 ,quad3){
+    quad1.style.background = "#0f0";
+    quad2.style.background = "#0f0";
+    quad3.style.background = "#0f0";
 }
 
-function checksequencia(x,y,z){
+function checksequencia(quad1, quad2 ,quad3){
     var eIgual = false;
     
-    if(x.inner.HTML !== '-' && x.innerHTML === y.innerHTML && y.innerHTML === z.innerHTML){
+    if(quad1.innerHTML !== '-' && quad1.innerHTML === quad2.innerHTML && quad2.innerHTML === quad3.innerHTML){
         
         eIgual = true;
     }
@@ -78,6 +119,21 @@ function checksequencia(x,y,z){
     return eIgual;
 }
 
+function reniciar(){
+	
+	vencedor = null;
+	vecendorSelecionado.innerHTML = ' ';
+	
+	for(var i = 1; i<=9; i++){
+		var quad = document.getElementById(i);
+		quad.style.background = '#eee';
+		quad.style.color = '#eee';
+		quad.innerHTML = '-';
+	}
+	
+	mudarJogador('X');
+
+}
 
 
 
