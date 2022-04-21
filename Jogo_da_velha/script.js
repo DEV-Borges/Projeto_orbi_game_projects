@@ -1,24 +1,21 @@
 var jogador, vencedor = null;
 var jogadorSelecionado = document.getElementById("jogador-selecionado");//pegando a tag label com o ID="jogador-selecionado".
 var vecendorSelecionado = document.getElementById("vencedor");//pegando a tag label com o ID="vencedor".
-//var quad = document.getElementsByClassName('quadrado');//pegando todas as divs com a class="quadrado".
+var quad = document.getElementsByClassName('quadrado');//pegando todas as divs com a class="quadrado".
 
 mudarJogador('X');//Dando valor inicial "X" para variavel jogador.
 
 ///////Preenche a div com "X" ou "O".
 function selecionarQuad(id){
-	
+
 	if (vencedor !== null){
 		return
-	}
-	
+	}	
     var quad = document.getElementById(id);//pegando a div do html para fazer a comparação
-    
     //Verificando se a div esta com o text "-" para da continuidade á função "selecionarQuad()".
     if (quad.innerHTML !== '-') {
         return;
     }
-
     quad.innerHTML = jogador;
     quad.style.color = "#000";
     //Comparando o valor que esta em jogador para informa de quem é a vez.
@@ -27,74 +24,60 @@ function selecionarQuad(id){
     } else {
         jogador = 'X';
     }
-
-    
     mudarJogador(jogador);
-	checkVencedor()
-
+	checkVencedor();
 }
 
-///Função para indicar de quem é a vez, para preencher a div com o parametro "valor".
+//Função para indicar de quem é a vez, para preencher a div com o parametro "valor".
 function mudarJogador(valor) {
     jogador = valor
     jogadorSelecionado.innerHTML = jogador
 }
 
-function checkVencedor() {
-    
-    var quad1 = document.getElementById("1");
-    var quad2 = document.getElementById("2");
-    var quad3 = document.getElementById("3");
-    var quad4 = document.getElementById("4");
-    var quad5 = document.getElementById("5");
-    var quad6 = document.getElementById("6");
-    var quad7 = document.getElementById("7");
-    var quad8 = document.getElementById("8");
-    var quad9 = document.getElementById("9");
-    
-    if (checksequencia(quad1,quad2,quad3)){
-        mudarCor(quad1,quad2,quad3);
-        mudarVencedor(quad1);
+function checkVencedor(){
+	
+	for (let x in quad){		
+    if (checksequencia(quad[0],quad[1],quad[2])){
+        mudarCor(quad[0],quad[1],quad[2]);
+        mudarVencedor(quad[0]);
 		return
     }
-	if (checksequencia(quad4,quad5,quad6)){
-        mudarCor(quad4,quad5,quad6);
-        mudarVencedor(quad4);
+	if (checksequencia(quad[3],quad[4],quad[5])){
+        mudarCor(quad[3],quad[4],quad[5]);
+        mudarVencedor(quad[3]);
 		return
     }
-	if (checksequencia(quad7,quad8,quad9)){
-        mudarCor(quad7,quad8,quad9);
-        mudarVencedor(quad7);
+	if (checksequencia(quad[6],quad[7],quad[8])){
+        mudarCor(quad[6],quad[7],quad[8]);
+        mudarVencedor(quad[6]);
 		return
     }
-	if (checksequencia(quad1,quad4,quad7)){
-        mudarCor(quad1,quad4,quad7);
-        mudarVencedor(quad1);
+	if (checksequencia(quad[0],quad[3],quad[6])){
+        mudarCor(quad[0],quad[3],quad[6]);
+        mudarVencedor(quad[0]);
 		return
     }
-	if (checksequencia(quad2,quad5,quad8)){
-        mudarCor(quad2,quad5,quad8);
-        mudarVencedor(quad2);
+	if (checksequencia(quad[1],quad[4],quad[7])){
+        mudarCor(quad[1],quad[4],quad[7]);
+        mudarVencedor(quad[1]);
 		return
     }	
-	if (checksequencia(quad3,quad6,quad9)){
-        mudarCor(quad3,quad6,quad9);
-        mudarVencedor(quad3);
+	if (checksequencia(quad[2],quad[5],quad[8])){
+        mudarCor(quad[2],quad[5],quad[8]);
+        mudarVencedor(quad[2]);
 		return
     }
-	if (checksequencia(quad1,quad5,quad9)){
-        mudarCor(quad1,quad5,quad9);
-        mudarVencedor(quad1);
+	if (checksequencia(quad[0],quad[4],quad[8])){
+        mudarCor(quad[0],quad[4],quad[8]);
+        mudarVencedor(quad[0]);
 		return
     }
-	if (checksequencia(quad3,quad5,quad7)){
-        mudarCor(quad3,quad5,quad7);
-        mudarVencedor(quad3);
+	if (checksequencia(quad[2],quad[4],quad[6])){
+        mudarCor(quad[2],quad[4],quad[6]);
+        mudarVencedor(quad[2]);
     }
-	
-   
 }
-
+}
 
 function  mudarVencedor(quadrado){
     
@@ -134,7 +117,4 @@ function reniciar(){
 	mudarJogador('X');
 
 }
-
-
-
 
