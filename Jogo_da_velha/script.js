@@ -25,7 +25,7 @@ function selecionarQuad(id){
         jogador = 'X';
     }
     mudarJogador(jogador);
-	checkVencedor();
+    checkVencedor();
 }
 
 //Função para indicar de quem é a vez, para preencher a div com o parametro "valor".
@@ -36,7 +36,9 @@ function mudarJogador(valor) {
 
 function checkVencedor(){
 	
-	for (let x in quad){		
+	for (let x in quad){
+
+
     if (checksequencia(quad[0],quad[1],quad[2])){
         mudarCor(quad[0],quad[1],quad[2]);
         mudarVencedor(quad[0]);
