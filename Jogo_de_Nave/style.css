@@ -21,7 +21,7 @@ h2 {
 }
 h3 {
 	font-family:Titulo;
-	font-size:20px;
+	font-size:30px;
 	color:#603A03;
 
 }
@@ -125,6 +125,9 @@ body {
 	left: 750px;
 	top: 7px;	
 }
+#reinicia{
+	padding-top:50px;
+}
 #fim {
 	width:350px;
 	height:200px;
@@ -175,6 +178,10 @@ body {
     -moz-animation: play3 .5s steps(7) infinite;
     -ms-animation: play3 .5s steps(7) infinite;
     -o-animation: play3 .5s steps(7) infinite;
+}
+.pontuacao{
+	text-transform: uppercase;
+	padding-top:50px;
 }
 
 /*////////////////KEYFRAME PLAY//////////////*/
