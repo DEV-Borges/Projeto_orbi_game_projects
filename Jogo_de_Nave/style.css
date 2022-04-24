@@ -14,12 +14,24 @@ h1 {
 	font-size:40px;
 	color:#603A03;
 }
+h2 {
+	font-family:Titulo;
+	font-size:20px;
+	color:#FFF
+}
+h3 {
+	font-family:Titulo;
+	font-size:20px;
+	color:#603A03;
+
+}
 body {
 	background-image:url(imgs/fundo.jpg);
     
 }
 /*/////////////////////ID/////////////////////*/
 #container{
+	
 	width:950px;
 	height:auto;
 	position:relative;
@@ -94,6 +106,36 @@ body {
 	height:87px;
 	position:absolute;	
 }
+#explosao3 {
+	width:44px;
+	height:51px;
+	position:absolute;
+}
+#placar {
+	width: 450px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 590px;
+}
+#energia {
+	width: 140px;
+	height: 38px;
+	position: absolute;
+	left: 750px;
+	top: 7px;	
+}
+#fim {
+	width:350px;
+	height:200px;
+	background-color:#FFF;
+ 	margin-left:auto;
+    margin-right:auto;
+ 	margin-top:100px;
+	text-align:center;
+	padding:10px;
+
+}
 /*/////////////////////CLASSES/////////////////////*/
 .anima1 {
 	background-image:url(imgs/helicoptero.png);
@@ -108,6 +150,7 @@ body {
 .anima2 {
     background-image:url(imgs/inimigo1.png);
     animation: play .5s steps(2) infinite;
+
     -webkit-animation: play .5s steps(2) infinite;
     -moz-animation: play .5s steps(2) infinite;
     -ms-animation: play .5s steps(2) infinite;
@@ -116,12 +159,25 @@ body {
 .anima3 {
 	background-image:url(imgs/amigo.png);
 	animation:play2 .9s steps(12) infinite;
+
 	-webkit-animation: play2 .9s steps(12) infinite;
     -moz-animation: play2 .9s steps(12) infinite;
     -ms-animation: play2 .9s steps(12) infinite;
     -o-animation: play2 .9s steps(12) infinite;
 }
-/*////////////////FRAME PLAY//////////////*/
+.anima4 {
+	width:44px;
+	height:51px;
+	background-image:url(imgs/amigo_morte.png);
+	animation:play3 .5s steps(7) infinite;
+
+	-webkit-animation: play3 .5s steps(7) infinite;
+    -moz-animation: play3 .5s steps(7) infinite;
+    -ms-animation: play3 .5s steps(7) infinite;
+    -o-animation: play3 .5s steps(7) infinite;
+}
+
+/*////////////////KEYFRAME PLAY//////////////*/
 @keyframes play {
 	from {background-position:0px;}
 	to {background-position:-512px;}
@@ -142,7 +198,7 @@ body {
    from { background-position:0px; }
      to { background-position: -512px; }
 }
-/*////////////////FRAME PLAY2//////////////*/
+/*////////////////KEYFRAME PLAY2//////////////*/
 @keyframes play2 {
 	from {background-position:0px;}
 	to {background-position:-528px;}
@@ -162,4 +218,25 @@ body {
 @-o-keyframes play2 {
    from { background-position:    0px; }
      to { background-position: -528px; }
+}
+/*////////////////KEYFRAME PLAY3//////////////*/
+@keyframes play3 {
+	from {background-position:0px;}
+	to {background-position:-308px;}
+}
+@-webkit-keyframes play3 {
+   from { background-position:    0px; }
+     to { background-position: -308px; }
+}
+@-moz-keyframes play3 {
+   from { background-position:    0px; }
+     to { background-position: -308px; }
+}
+@-ms-keyframes play3 {
+   from { background-position:    0px; }
+     to { background-position: -308px; }
+}
+@-o-keyframes play3 {
+   from { background-position:    0px; }
+     to { background-position: -308px; }
 }
